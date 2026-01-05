@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SmartHome.App.Views.Controls.GreetingCard"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Border StrokeThickness="0" Shadow="{StaticResource SoftShadow}" Padding="18">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="30"/>
+        </Border.StrokeShape>
+        <Border.Background>{StaticResource GreetingGradient}</Border.Background>
+
+        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto" RowSpacing="10">
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="{Binding Title, Source={RelativeSource AncestorType={x:Type local:GreetingCard}}}"
+                       FontSize="22" FontAttributes="Bold" TextColor="White"/>
+                <Label Text="{Binding Subtitle, Source={RelativeSource AncestorType={x:Type local:GreetingCard}}}"
+                       FontSize="12" TextColor="#EDE9FE"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="End" Spacing="0">
+                <Label Text="{Binding TempValue, Source={RelativeSource AncestorType={x:Type local:GreetingCard}}}"
+                       FontSize="28" FontAttributes="Bold" TextColor="White"
+                       HorizontalTextAlignment="End"/>
+                <Label Text="{Binding TempStatus, Source={RelativeSource AncestorType={x:Type local:GreetingCard}}}"
+                       FontSize="12" TextColor="#EDE9FE"
+                       HorizontalTextAlignment="End"/>
+            </VerticalStackLayout>
+
+            <Grid Grid.Row="2" ColumnDefinitions="Auto,Auto" ColumnSpacing="18">
+                <HorizontalStackLayout Spacing="8">
+                    <Label Text="🛡" TextColor="White"/>
+                    <Label Text="{Binding TagLeft, Source={RelativeSource AncestorType={x:Type local:GreetingCard}}}"
+                           FontSize="12" TextColor="White"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Column="1" Spacing="8">
+                    <Label Text="⚡" TextColor="White"/>
+                    <Label Text="{Binding TagRight, Source={RelativeSource AncestorType={x:Type local:GreetingCard}}}"
+                           FontSize="12" TextColor="White"/>
+                </HorizontalStackLayout>
+            </Grid>
+
+        </Grid>
+    </Border>
+</ContentView>
