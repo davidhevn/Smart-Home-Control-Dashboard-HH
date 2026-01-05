@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Shell
     x:Class="Smart_Home_Control_Dashboard_HH.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Smart_Home_Control_Dashboard_HH"
-    Shell.FlyoutBehavior="Flyout"
-    Title="Smart_Home_Control_Dashboard_HH">
+    xmlns:local="clr-namespace:Smart_Home_Control_Dashboard_HH">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+        Title="Dashboard"
+        ContentTemplate="{DataTemplate local:MainPage}" />
 </Shell>
