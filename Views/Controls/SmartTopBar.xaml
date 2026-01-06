@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SmartHomeApp.Views.Controls.SmartTopBar"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto" ColumnSpacing="10" VerticalOptions="Center">
+
+        <!-- Home icon gradient -->
+        <Border HeightRequest="46" WidthRequest="46" StrokeThickness="0" Shadow="{StaticResource SoftShadow}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="18"/>
+            </Border.StrokeShape>
+            <Border.Background>{StaticResource BrandGradient}</Border.Background>
+            <Label Text="⌂" FontSize="20" TextColor="White"
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Border>
+
+        <!-- Title + metrics -->
+        <VerticalStackLayout Grid.Column="1" Spacing="2">
+            <Label Text="{Binding Title, Source={RelativeSource AncestorType={x:Type controls:SmartTopBar}}}"
+                   FontSize="18" FontAttributes="Bold" TextColor="{StaticResource TextDark}"/>
+
+            <HorizontalStackLayout Spacing="10">
+                <HorizontalStackLayout Spacing="6">
+                    <Label Text="📶" FontSize="12"/>
+                    <Label Text="{Binding DevicesText, Source={RelativeSource AncestorType={x:Type controls:SmartTopBar}}}"
+                           FontSize="12" TextColor="{StaticResource TextMuted}"/>
+                </HorizontalStackLayout>
+
+                <Label Text="•" FontSize="12" TextColor="#94A3B8"/>
+
+                <HorizontalStackLayout Spacing="6">
+                    <Label Text="〰️" FontSize="12"/>
+                    <Label Text="{Binding ActiveText, Source={RelativeSource AncestorType={x:Type controls:SmartTopBar}}}"
+                           FontSize="12" TextColor="{StaticResource TextMuted}"/>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- Buttons -->
+        <Border Grid.Column="2" HeightRequest="40" WidthRequest="40"
+                Stroke="{StaticResource BorderSoft}" StrokeThickness="1"
+                BackgroundColor="White" Shadow="{StaticResource SoftShadow}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16"/>
+            </Border.StrokeShape>
+            <Label Text="≡" FontSize="16" TextColor="{StaticResource TextDark}"
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Border>
+
+        <Border Grid.Column="3" HeightRequest="40" WidthRequest="40"
+                Stroke="{StaticResource BorderSoft}" StrokeThickness="1"
+                BackgroundColor="White" Shadow="{StaticResource SoftShadow}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16"/>
+            </Border.StrokeShape>
+            <Label Text="☾" FontSize="16" TextColor="{StaticResource TextDark}"
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Border>
+
+        <Border Grid.Column="4" HeightRequest="40" WidthRequest="40"
+                Stroke="{StaticResource BorderSoft}" StrokeThickness="1"
+                BackgroundColor="White" Shadow="{StaticResource SoftShadow}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16"/>
+            </Border.StrokeShape>
+            <Label Text="⚙" FontSize="16" TextColor="{StaticResource TextDark}"
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Border>
+    </Grid>
+</ContentView>

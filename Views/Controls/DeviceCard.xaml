@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="SmartHome.App.Views.Controls.DeviceCard"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Border StrokeThickness="0"
+            Shadow="{StaticResource SoftShadow}"
+            Padding="18"
+            Margin="0,10,0,0"
+            Background="{StaticResource DeviceCardGradient}">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="30"/>
+        </Border.StrokeShape>
+
+        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14" VerticalOptions="Center">
+
+            <Border HeightRequest="52" WidthRequest="52"
+                    BackgroundColor="#E9ECF5"
+                    StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="18"/>
+                </Border.StrokeShape>
+                <Label Text="{Binding IconText, Source={RelativeSource AncestorType={x:Type local:DeviceCard}}}"
+                       FontSize="18" TextColor="#111827"
+                       HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+
+            <VerticalStackLayout Grid.Column="1" Spacing="3">
+                <Label Text="{Binding Title, Source={RelativeSource AncestorType={x:Type local:DeviceCard}}}"
+                       FontSize="16" FontAttributes="Bold"
+                       TextColor="#F8FAFC"/>
+                <Label Text="{Binding Subtitle, Source={RelativeSource AncestorType={x:Type local:DeviceCard}}}"
+                       FontSize="12"
+                       TextColor="#CBD5E1"/>
+            </VerticalStackLayout>
+
+            <Switch Grid.Column="2"
+                    IsToggled="{Binding IsOn, Source={RelativeSource AncestorType={x:Type local:DeviceCard}}}"
+                    OnColor="#A78BFA"
+                    ThumbColor="White"
+                    VerticalOptions="Center"/>
+        </Grid>
+    </Border>
+</ContentView>
